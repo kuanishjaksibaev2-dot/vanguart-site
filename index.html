@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vanguard — студия архитектуры и дизайна интерьеров. Создаём пространства, вдохновляющие на величие." />
+  <title>Vanguard — Архитектура и дизайн интерьеров</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">VANGUARD</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" data-i18n="nav.about">О нас</a>
+        <a href="#portfolio" data-i18n="nav.portfolio">Портфолио</a>
+        <a href="#testimonials" data-i18n="nav.testimonials">Отзывы</a>
+        <a href="#contact" data-i18n="nav.contact">Контакты</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="kz">KZ</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-art-container">
+      <div class="geo-shape shape-glow-circle"></div>
+      <div class="geo-shape shape-cube"></div>
+      <div class="geo-shape shape-lines"></div>
+    </div>
+
+    <div class="hero-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Премиальные веб-решения</p>
+      <h1 class="hero-title" data-i18n="hero.title">Создание сайтов <span class="gold-text">Vanguard</span></h1>
+      <p class="hero-description" data-i18n="hero.desc">Эстетика глассморфизма, интерактивный дизайн и безупречная производительность 60 FPS.</p>
+      <div class="hero-actions">
+        <a href="#portfolio" class="button btn-primary" data-i18n="hero.portfolioBtn">Смотреть портфолио</a>
+        <a href="#contact" class="button btn-secondary" data-i18n="hero.contactBtn">Обсудить проект</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок About (О нас) -->
+  <section class="about" id="about">
+    <div class="container about-container">
+      <div class="about-info reveal">
+        <p class="section-subtitle" data-i18n="about.subtitle">Философия бренда</p>
+        <h2 class="section-title" data-i18n="about.title">Мы создаем цифровую <span class="gold-text">эстетику</span></h2>
+        <p class="about-text" data-i18n="about.text">
+          Vanguard — это не просто разработка. Это манифест безупречного стиля и высоких технологий.
+          Мы верим, что премиальный дизайн должен подкрепляться идеальным техническим исполнением
+          на уровне 60 кадров в секунду.
+        </p>
+        <div class="about-meta">
+          <div class="meta-item">
+            <span class="meta-number">05+</span>
+            <span class="meta-label" data-i18n="about.meta1Label">Лет опыта</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-number">40+</span>
+            <span class="meta-label" data-i18n="about.meta2Label">Премиум кейсов</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-quote-box reveal">
+        <div class="quote-icon">"</div>
+        <blockquote class="founder-quote" data-i18n="about.quote">
+          Дизайн — это не то, как предмет выглядит. Дизайн — это то, как он работает.
+          В Vanguard мы возводим интерфейсы в ранг искусства, убирая все лишнее ради чистой эстетики.
+        </blockquote>
+        <div class="founder-signature">
+          <span class="founder-name" data-i18n="about.founderName">Александр Вэнгард</span>
+          <span class="founder-title" data-i18n="about.founderTitle">Основатель & CEO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок Portfolio -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-subtitle" data-i18n="portfolio.subtitle">Наши работы</p>
+        <h2 class="section-title" data-i18n="portfolio.title">Избранное <span class="gold-text">Портфолио</span></h2>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item-wrap reveal">
+          <div class="portfolio-card" data-tilt>
+            <div class="portfolio-img-mock">01</div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Fintech</span>
+              <h3 class="portfolio-project-title">Aura Crypto App</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item-wrap reveal">
+          <div class="portfolio-card" data-tilt>
+            <div class="portfolio-img-mock">02</div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">E-Commerce</span>
+              <h3 class="portfolio-project-title">Velo Luxury Store</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item-wrap reveal">
+          <div class="portfolio-card" data-tilt>
+            <div class="portfolio-img-mock">03</div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">AI Concept</span>
+              <h3 class="portfolio-project-title">Nexus Neural Net</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item-wrap reveal">
+          <div class="portfolio-card" data-tilt>
+            <div class="portfolio-img-mock">04</div>
+            <div class="portfolio-info">
+              <span class="portfolio-tag">Cybersecurity</span>
+              <h3 class="portfolio-project-title">Sentinel Core</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок Services (Услуги) -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-subtitle" data-i18n="services.subtitle">Что мы делаем</p>
+        <h2 class="section-title" data-i18n="services.title">Наши <span class="gold-text">Услуги</span></h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card glass-card reveal">
+          <div class="service-icon">01</div>
+          <h3 class="service-name" data-i18n="services.name1">Web Design</h3>
+          <p class="service-text" data-i18n="services.text1">Создание уникальных премиальных интерфейсов с глубоким погружением в эстетику бренда.</p>
+        </div>
+
+        <div class="service-card glass-card reveal">
+          <div class="service-icon">02</div>
+          <h3 class="service-name" data-i18n="services.name2">Development</h3>
+          <p class="service-text" data-i18n="services.text2">Высокопроизводительный код на чистом JS с плавной интерактивностью 60 FPS без задержек.</p>
+        </div>
+
+        <div class="service-card glass-card reveal">
+          <div class="service-icon">03</div>
+          <h3 class="service-name" data-i18n="services.name3">Glassmorphism UI</h3>
+          <p class="service-text" data-i18n="services.text3">Интеграция современных визуальных трендов, матовых текстур и динамических размытий.</p>
+        </div>
+
+        <div class="service-card glass-card reveal">
+          <div class="service-icon">04</div>
+          <h3 class="service-name" data-i18n="services.name4">Optimization</h3>
+          <p class="service-text" data-i18n="services.text4">Глубокий аудит производительности, устранение Layout Thrashing и ускорение рендеринга.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials / Bento Grid -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="testimonials.label">Доверие</span>
+        <h2 class="section-title" data-i18n="testimonials.title">Цифры и <span class="gold">отзывы</span></h2>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-item bento-accent reveal">
+          <span class="bento-stat" data-count="150">0</span>
+          <span class="bento-label" data-i18n="testimonials.stat1">Завершённых проектов</span>
+        </div>
+        <div class="bento-item bento-wide reveal">
+          <div class="bento-quote">
+            <svg class="bento-quote-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M10 16H6V12L8 8H12V12L10 16ZM20 16H16V12L18 8H22V12L20 16Z" fill="currentColor" opacity="0.4"/></svg>
+            <p data-i18n="testimonials.quote1">Vanguard превратили наше пространство в произведение искусства. Каждая деталь продумана до миллиметра.</p>
+            <div class="bento-author">
+              <span class="bento-author-name" data-i18n="testimonials.author1Name">Александр Демидов</span>
+              <span class="bento-author-role" data-i18n="testimonials.author1Role">Владелец Villa Lumière</span>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item reveal">
+          <span class="bento-stat" data-count="12">0</span>
+          <span class="bento-label" data-i18n="testimonials.stat2">Международных наград</span>
+        </div>
+        <div class="bento-item bento-tall reveal">
+          <span class="bento-stat" data-count="48">0</span>
+          <span class="bento-label" data-i18n="testimonials.stat3">Стран-клиентов</span>
+        </div>
+        <div class="bento-item reveal">
+          <span class="bento-stat" data-count="25">0</span>
+          <span class="bento-label" data-i18n="testimonials.stat4">Лет безупречной репутации</span>
+        </div>
+        <div class="bento-item bento-wide reveal">
+          <div class="bento-quote">
+            <svg class="bento-quote-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M10 16H6V12L8 8H12V12L10 16ZM20 16H16V12L18 8H22V12L20 16Z" fill="currentColor" opacity="0.4"/></svg>
+            <p data-i18n="testimonials.quote2">Работать с Vanguard — это не просто заказать дизайн. Это погрузиться в мир безупречного вкуса и профессионализма.</p>
+            <div class="bento-author">
+              <span class="bento-author-name" data-i18n="testimonials.author2Name">Мария Шевцова</span>
+              <span class="bento-author-role" data-i18n="testimonials.author2Role">CEO, Noir Hotel Group</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="section-label" data-i18n="contact.label">Связь</span>
+          <h2 class="section-title" data-i18n="contact.title">Обсудим <span class="gold">ваш проект</span></h2>
+          <p class="contact-desc" data-i18n="contact.desc">
+            Оставьте заявку, и наша команда свяжется с вами в ближайшее время
+            для предварительной консультации.
+          </p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <span class="detail-label" data-i18n="contact.phoneLabel">Телефон</span>
+              <a href="tel:+74951234567" class="detail-value">+7 (495) 123-45-67</a>
+            </div>
+            <div class="contact-detail">
+              <span class="detail-label" data-i18n="contact.emailLabel">Почта</span>
+              <a href="mailto:hello@vanguard.studio" class="detail-value">hello@vanguard.studio</a>
+            </div>
+            <div class="contact-detail">
+              <span class="detail-label" data-i18n="contact.addressLabel">Адрес</span>
+              <span class="detail-value" data-i18n="contact.address">Москва, Патриаршие пруды, 5</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-group">
+            <input type="text" id="name" class="form-input" required />
+            <label for="name" class="form-label" data-i18n="contact.formName">Ваше имя</label>
+            <span class="form-line"></span>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" class="form-input" required />
+            <label for="email" class="form-label" data-i18n="contact.formEmail">Email</label>
+            <span class="form-line"></span>
+          </div>
+          <div class="form-group">
+            <textarea id="message" class="form-input form-textarea" required></textarea>
+            <label for="message" class="form-label" data-i18n="contact.formMessage">Сообщение</label>
+            <span class="form-line"></span>
+          </div>
+          <button type="submit" class="btn-primary btn-submit">
+            <span data-i18n="contact.submit">Отправить</span>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <a href="#" class="footer-logo">VANGUARD</a>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2.5" y="2.5" width="15" height="15" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"/><circle cx="14.5" cy="5.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Behance">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 4H11V7H2V4ZM2 9H11V12H2V9ZM2 14H11V17H2V14ZM13 14C13 12.343 14.343 11 16 11C17.657 11 19 12.343 19 14C19 15.657 17.657 17 16 17C14.343 17 13 15.657 13 14ZM13 14H11C11 16.761 13.239 19 16 19C18.761 19 21 16.761 21 14C21 11.239 18.761 9 16 9C13.239 9 11 11.239 11 14H13ZM16 5H20V7H16V5Z" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Pinterest">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C5.582 2 2 5.582 2 10C2 13.736 4.345 16.907 7.586 18.207C7.51 17.545 7.454 16.543 7.624 15.68C7.78 14.893 8.52 11.62 8.52 11.62C8.52 11.62 8.267 11.113 8.267 10.357C8.267 9.167 8.947 8.307 9.8 8.307C10.533 8.307 10.887 8.86 10.887 9.513C10.887 10.233 10.407 11.273 10.16 12.24C9.96 13.047 10.553 13.707 11.347 13.707C12.733 13.707 13.8 12.247 13.8 10.14C13.8 8.34 12.52 7.06 10.68 7.06C8.54 7.06 7.26 8.68 7.26 10.36C7.26 11.06 7.533 11.82 7.893 12.26C7.96 12.34 7.973 12.407 7.947 12.473C7.873 12.727 7.713 13.34 7.68 13.493C7.64 13.687 7.547 13.713 7.347 13.607C6.253 13.06 5.553 11.507 5.553 10.333C5.553 7.887 7.36 5.7 10.82 5.7C13.627 5.7 15.78 7.647 15.78 10.107C15.78 12.887 14.04 15.1 11.58 15.1C10.76 15.1 9.987 14.667 9.727 14.147L9.14 16.607C8.94 17.413 8.36 18.427 7.98 19.06C8.62 19.247 9.3 19.347 10 19.347C14.418 19.347 18 15.765 18 11.347C18 6.929 14.418 3.347 10 3.347V2Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer.copyright">&copy; 2026 Vanguard Studio. Все права защищены.</span>
+        <div class="footer-links">
+          <a href="#" data-i18n="footer.privacy">Политика конфиденциальности</a>
+          <a href="#" data-i18n="footer.terms">Условия использования</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
