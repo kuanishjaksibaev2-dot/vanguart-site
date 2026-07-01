@@ -384,7 +384,6 @@
   /* ========== FORM HANDLING ========== */
   const form = document.getElementById('contactForm');
   if (form) {
-    // Placeholder hack for floating labels
     const inputs = form.querySelectorAll('.form-input');
     inputs.forEach(input => {
       input.setAttribute('placeholder', ' ');
@@ -394,6 +393,26 @@
       e.preventDefault();
       const btn = form.querySelector('.btn-submit');
       const originalText = btn.innerHTML;
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Telegram Bot config — замените на свои
+      const TELEGRAM_TOKEN = ''; // ваш токен бота
+      const TELEGRAM_CHAT_ID = ''; // ваш chat ID
+
+      const sendToTelegram = TELEGRAM_TOKEN && TELEGRAM_CHAT_ID;
+
+      if (sendToTelegram) {
+        const text = `Vanguard\n\nИмя: ${name}\nEmail: ${email}\nСообщение: ${message}`;
+        fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text })
+        }).catch(() => {});
+      }
+
       btn.innerHTML = '<span>' + i18n[currentLang].formSuccess + '</span>';
       btn.style.pointerEvents = 'none';
       setTimeout(() => {
@@ -478,5 +497,46 @@
       spotlight.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(207, 180, 140, 0.06) 0%, transparent 50%)`;
     });
   }
+
+  /* ========== COUNTER ANIMATION ========== */
+  function animateCounter(el, target) {
+    const text = target;
+    const hasPlus = text.includes('+');
+    const num = parseInt(text, 10);
+    if (isNaN(num)) return;
+    let current = 0;
+    const step = Math.max(1, Math.floor(num / 40));
+    const duration = 1200;
+    const interval = Math.floor(duration / (num / step));
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= num) {
+        current = num;
+        clearInterval(timer);
+      }
+      el.textContent = current + (hasPlus ? '+' : '');
+    }, interval);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const text = el.textContent.trim();
+        animateCounter(el, text);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.meta-number').forEach(el => counterObserver.observe(el));
+
+  /* ========== PRELOADER ========== */
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      setTimeout(() => preloader.classList.add('hidden'), 400);
+    }
+  });
 
 })();
