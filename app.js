@@ -479,4 +479,31 @@
     });
   }
 
+  /* ========== COUNTER ANIMATION ========== */
+  document.querySelectorAll('.meta-number').forEach(function(el) {
+    var text = el.textContent.trim();
+    var hasPlus = text.includes('+');
+    var num = parseInt(text, 10);
+    if (isNaN(num)) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var current = 0;
+          var step = Math.max(1, Math.floor(num / 40));
+          var timer = setInterval(function() {
+            current += step;
+            if (current >= num) {
+              current = num;
+              clearInterval(timer);
+            }
+            el.textContent = current + (hasPlus ? '+' : '');
+          }, 30);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(el);
+  });
+
 })();
