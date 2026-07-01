@@ -384,7 +384,6 @@
   /* ========== FORM HANDLING ========== */
   const form = document.getElementById('contactForm');
   if (form) {
-    // Placeholder hack for floating labels
     const inputs = form.querySelectorAll('.form-input');
     inputs.forEach(input => {
       input.setAttribute('placeholder', ' ');
@@ -394,9 +393,26 @@
       e.preventDefault();
       const btn = form.querySelector('.btn-submit');
       const originalText = btn.innerHTML;
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Telegram Bot — вставьте свои TOKEN и CHAT_ID
+      var token = ''; // Telegram Bot Token
+      var chatId = ''; // Telegram Chat ID
+      if (token && chatId) {
+        var text = 'Vanguard\n\nИмя: ' + name + '\nEmail: ' + email + '\nСообщение: ' + message;
+        fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: chatId, text: text })
+        }).catch(function() {});
+      }
+
       btn.innerHTML = '<span>' + i18n[currentLang].formSuccess + '</span>';
       btn.style.pointerEvents = 'none';
-      setTimeout(() => {
+      setTimeout(function() {
         btn.innerHTML = originalText;
         btn.style.pointerEvents = '';
         form.reset();
