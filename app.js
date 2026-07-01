@@ -532,11 +532,19 @@
   document.querySelectorAll('.meta-number').forEach(el => counterObserver.observe(el));
 
   /* ========== PRELOADER ========== */
-  window.addEventListener('load', () => {
+  function hidePreloader() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-      setTimeout(() => preloader.classList.add('hidden'), 400);
+      preloader.classList.add('hidden');
     }
-  });
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(hidePreloader, 400);
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(hidePreloader, 400);
+    });
+  }
 
 })();
