@@ -522,4 +522,17 @@
     observer.observe(el);
   });
 
+  /* ========== PRELOADER ========== */
+  (function() {
+    var preloader = document.getElementById('preloader');
+    if (!preloader) return;
+    function hide() { preloader.classList.add('hidden'); }
+    if (document.readyState === 'complete') {
+      setTimeout(hide, 600);
+    } else {
+      window.addEventListener('load', function() { setTimeout(hide, 600); });
+    }
+    setTimeout(hide, 4000);
+  })();
+
 })();
