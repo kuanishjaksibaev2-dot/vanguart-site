@@ -532,19 +532,20 @@
   document.querySelectorAll('.meta-number').forEach(el => counterObserver.observe(el));
 
   /* ========== PRELOADER ========== */
-  function hidePreloader() {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
+  (function hidePreloader() {
+    var preloader = document.getElementById('preloader');
+    if (!preloader) return;
+    function hide() {
       preloader.classList.add('hidden');
     }
-  }
-
-  if (document.readyState === 'complete') {
-    setTimeout(hidePreloader, 400);
-  } else {
-    window.addEventListener('load', () => {
-      setTimeout(hidePreloader, 400);
-    });
-  }
+    // If page already fully loaded, hide after brief delay
+    if (document.readyState === 'complete') {
+      setTimeout(hide, 600);
+    } else {
+      window.addEventListener('load', function() { setTimeout(hide, 600); });
+    }
+    // Force hide after 4s no matter what
+    setTimeout(hide, 4000);
+  })();
 
 })();
