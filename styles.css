@@ -954,16 +954,25 @@ ul { list-style: none; }
 }
 
 .service-icon {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  font-weight: 700;
-  color: rgba(207, 180, 140, 0.3);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 24px;
-  transition: color 0.3s ease;
+  border: 1px solid rgba(207, 180, 140, 0.2);
+  border-radius: 12px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.service-icon svg {
+  width: 28px;
+  height: 28px;
 }
 
 .glass-card:hover .service-icon {
-  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(207, 180, 140, 0.08);
 }
 
 .service-name {
